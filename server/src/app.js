@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import { notFound, errorHandler } from "./middleware/errorHandler.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import simulationRoutes from "./routes/simulationRoutes.js";
+import twinRoutes from "./routes/twinRoutes.js";
 
 export function createApp() {
   const app = express();
@@ -22,6 +23,7 @@ export function createApp() {
 
   app.use("/api/v1/events", eventRoutes);
   app.use("/api/v1/simulations", simulationRoutes);
+  app.use("/api/v1/twin", twinRoutes);
   app.use(notFound);
   app.use(errorHandler);
   return app;
