@@ -3,7 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "scripts": {
+ "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
     "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "mongoose": "^9.13.1",
+    "zod": "^4.6.7"
   }
 }
