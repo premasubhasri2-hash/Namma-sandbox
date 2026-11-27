@@ -5,6 +5,7 @@ import { notFound, errorHandler } from "./middleware/errorHandler.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import simulationRoutes from "./routes/simulationRoutes.js";
 import twinRoutes from "./routes/twinRoutes.js";
+import routingRoutes from "./routes/routingRoutes.js";
 
 export function createApp() {
   const app = express();
@@ -24,6 +25,7 @@ export function createApp() {
   app.use("/api/v1/events", eventRoutes);
   app.use("/api/v1/simulations", simulationRoutes);
   app.use("/api/v1/twin", twinRoutes);
+  app.use("/api/v1/routing", routingRoutes);
   app.use(notFound);
   app.use(errorHandler);
   return app;
