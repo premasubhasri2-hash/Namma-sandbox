@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import { notFound, errorHandler } from "./middleware/errorHandler.js";
+import eventRoutes from "./routes/eventRoutes.js";
+import simulationRoutes from "./routes/simulationRoutes.js";
 
 export function createApp() {
   const app = express();
@@ -18,6 +20,8 @@ export function createApp() {
     });
   });
 
+  app.use("/api/v1/events", eventRoutes);
+  app.use("/api/v1/simulations", simulationRoutes);
   app.use(notFound);
   app.use(errorHandler);
   return app;
