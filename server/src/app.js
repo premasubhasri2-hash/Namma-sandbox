@@ -8,6 +8,7 @@ import twinRoutes from "./routes/twinRoutes.js";
 import routingRoutes from "./routes/routingRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 export function createApp() {
   const app = express();
@@ -30,6 +31,7 @@ export function createApp() {
   app.use("/api/v1/routing", routingRoutes);
   app.use("/api/v1/dashboard", dashboardRoutes);
   app.use("/api/v1/ai", aiRoutes);
+    app.use("/api/v1/auth", authRoutes);
   app.use(notFound);
   app.use(errorHandler);
   return app;
