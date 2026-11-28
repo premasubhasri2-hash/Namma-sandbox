@@ -17,3 +17,8 @@ export const analyzeEventSchema = z
     image: image.optional(),
   })
   .refine((d) => d.eventId || d.description, { message: "Provide eventId or description" });
+
+  export const explainSimulationSchema = z.object({
+  simulationId: z.string().regex(/^[a-f\d]{24}$/i, "Invalid simulation id"),
+  refresh: z.boolean().optional(),
+});
