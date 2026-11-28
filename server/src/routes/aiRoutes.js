@@ -9,5 +9,6 @@ router.post("/analyze-event", validate(analyzeEventSchema), ai.analyzeEvent);
 router.post("/explain-simulation", validate(explainSimulationSchema), ai.explainSimulation);
 router.post("/analyze-impact", validate(analyzeImpactSchema), ai.analyzeImpact);
 router.post("/plan-scenario", validate(planScenarioSchema), ai.planScenarioFromText);
+router.post("/orchestrate", validate(planScenarioSchema), ai.orchestrateFromText);
 
 export default router;
