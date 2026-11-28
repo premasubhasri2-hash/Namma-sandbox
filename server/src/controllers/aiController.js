@@ -1,5 +1,7 @@
 import * as eventAnalysisService from "../services/events/eventAnalysisService.js";
 import * as simulationExplanationService from "../services/agents/simulationExplanationService.js";
+import * as impactService from "../services/agents/impactService.js";
+
 
 const wrap = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 
@@ -9,4 +11,7 @@ export const analyzeEvent = wrap(async (req, res) => {
 export const explainSimulation = wrap(async (req, res) => {
   const { simulationId, refresh } = req.body;
   res.json({ data: await simulationExplanationService.explainSavedSimulation(simulationId, { refresh }) });
+});
+export const analyzeImpact = wrap(async (req, res) => {
+  res.json({ data: await impactService.analyzeSimulationImpact(req.body.simulationId) });
 });

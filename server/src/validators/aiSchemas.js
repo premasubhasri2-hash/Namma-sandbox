@@ -22,3 +22,6 @@ export const analyzeEventSchema = z
   simulationId: z.string().regex(/^[a-f\d]{24}$/i, "Invalid simulation id"),
   refresh: z.boolean().optional(),
 });
+export const analyzeImpactSchema = z.object({
+  simulationId: z.string().regex(/^[a-f\d]{24}$/i, "Invalid simulation id"),
+});
