@@ -25,3 +25,6 @@ export const analyzeEventSchema = z
 export const analyzeImpactSchema = z.object({
   simulationId: z.string().regex(/^[a-f\d]{24}$/i, "Invalid simulation id"),
 });
+export const planScenarioSchema = z.object({
+  text: z.string().trim().min(5).max(500),
+});
