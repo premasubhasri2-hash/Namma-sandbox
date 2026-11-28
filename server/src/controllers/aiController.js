@@ -2,7 +2,7 @@ import * as eventAnalysisService from "../services/events/eventAnalysisService.j
 import * as simulationExplanationService from "../services/agents/simulationExplanationService.js";
 import * as impactService from "../services/agents/impactService.js";
 import { planScenario } from "../services/agents/scenarioPlannerAgent.js";
-
+import { orchestrate } from "../services/agents/orchestrator.js";
 
 const wrap = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 
@@ -18,4 +18,7 @@ export const analyzeImpact = wrap(async (req, res) => {
 });
 export const planScenarioFromText = wrap(async (req, res) => {
   res.json({ data: await planScenario(req.body.text) });
+});
+export const orchestrateFromText = wrap(async (req, res) => {
+  res.json({ data: await orchestrate(req.body.text) });
 });
